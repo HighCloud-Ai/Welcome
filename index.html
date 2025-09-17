@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Practical AI Training for Non-Coders | HighCloud AI</title>
+  <meta name="description" content="Practical, hands-on AI setup, training, and ongoing support for people who don't code. Learn to get real results with AI step-by-step." />
+  <meta name="theme-color" content="#0f172a" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Practical AI for People Who Don't Code" />
+  <meta property="og:description" content="We set up your tools, teach your team, and stay available for questions—so AI actually sticks." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://xthreo.github.io/highcloud-ai" />
+  <meta property="og:image" content="https://xthreo.github.io/highcloud-ai/og-image.png" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Practical AI for People Who Don't Code" />
+  <meta name="twitter:description" content="Hands-on AI setup, training & support for non-coders." />
+  <meta name="twitter:image" content="https://xthreo.github.io/highcloud-ai/og-image.png" />
+  <link rel="canonical" href="https://xthreo.github.io/highcloud-ai" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <style>
+    :root { --bg-gradient: radial-gradient(circle at 20% 20%, rgba(56,189,248,0.08), transparent 60%), radial-gradient(circle at 80% 60%, rgba(14,165,233,0.10), transparent 65%), linear-gradient(135deg,#0f172a,#0a1120); }
+    html { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+    body { background: #0b1324; color: #f1f5f9; min-height: 100%; }
+    .gradient-hero { background: var(--bg-gradient); position: relative; overflow: hidden; }
+    .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+    .animate-fade-up { opacity: 0; transform: translateY(12px); animation: fadeUp 0.8s ease forwards; }
+    @keyframes fadeUp { to { opacity:1; transform: translateY(0);} }
+    .gradient-text { background: linear-gradient(90deg,#38bdf8,#06b6d4,#4f46e5); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .focus-outline:focus-visible { outline: 2px solid #38bdf8; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { .animate-fade-up { animation: none; opacity: 1; transform:none; } * { scroll-behavior: auto !important; } }
+    .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus { position:static; width:auto; height:auto; padding:0.75rem 1rem; background:#0ea5e9; color:#0f172a; font-weight:600; z-index:50; }
+    .nav-active { color:#38bdf8; }
+    .timeline:before { content:""; position:absolute; left:1.25rem; top:0; bottom:0; width:2px; background:linear-gradient(#38bdf8,#0ea5e9); }
+    .faq-item[open] summary svg { transform: rotate(180deg); }
+    .toast { position:fixed; bottom:1.25rem; right:1.25rem; background:#0f172a; color:#f8fafc; padding:0.75rem 1rem; border-radius:0.5rem; box-shadow:0 4px 18px -2px rgba(0,0,0,0.5); display:flex; align-items:center; gap:0.5rem; font-size:0.875rem; }
+    .help-panel { position:fixed; bottom:5rem; right:1rem; width:300px; max-width:92vw; transform:translateY(16px); opacity:0; pointer-events:none; transition: all .3s ease; }
+    .help-panel.active { transform:translateY(0); opacity:1; pointer-events:auto; }
+    .bg-mesh { position:absolute; inset:0; overflow:hidden; }
+    .bg-mesh svg { width:140%; height:140%; filter:blur(60px); opacity:0.40; }
+    .mobile-cta-bar { position:fixed; left:0; right:0; bottom:0; background:rgba(15,23,42,0.85); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); padding:0.75rem 1rem; display:none; }
+    @media (max-width: 768px) { .mobile-cta-bar { display:flex; justify-content:space-between; align-items:center; } }
+  </style>
+</head>
+<body class="antialiased leading-relaxed">
+  <a href="#main" class="skip-link focus-outline">Skip to content</a>
+  <header class="sticky top-0 z-40 bg-[#0f172acc] backdrop-blur border-b border-white/5" role="banner">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between gap-6 px-4 py-3" aria-label="Primary">
+      <div class="flex items-center gap-8">
+        <a href="#hero" class="font-extrabold text-xl tracking-tight gradient-text focus-outline" aria-label="HighCloud AI Home">HighCloud<span class="text-sky-400">AI</span></a>
+        <ul class="hidden md:flex items-center gap-6 text-sm font-medium" role="list">
+          <li><a href="#benefits" class="hover:text-sky-300 focus-outline py-2 block">Benefits</a></li>
+          <li><a href="#services" class="hover:text-sky-300 focus-outline py-2 block">Services</a></li>
+          <li><a href="#how" class="hover:text-sky-300 focus-outline py-2 block">How It Works</a></li>
+          <li><a href="#testimonials" class="hover:text-sky-300 focus-outline py-2 block">Testimonials</a></li>
+          <li><a href="#faq" class="hover:text-sky-300 focus-outline py-2 block">FAQ</a></li>
+          <li><a href="#contact" class="hover:text-sky-300 focus-outline py-2 block">Contact</a></li>
+        </ul>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden sm:inline-flex focus-outline text-sm font-semibold px-4 py-2 rounded-md bg-sky-500 hover:bg-sky-400 text-slate-900 shadow transition" aria-label="Book a free 15 minute call">Book a Call</a>
+        <button id="mobileMenuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md glass focus-outline" aria-expanded="false" aria-controls="mobileNav" aria-label="Open navigation menu"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      </div>
+    </nav>
+    <div id="mobileNav" class="md:hidden hidden border-t border-white/5" aria-label="Mobile navigation">
+      <ul class="px-4 py-4 space-y-2 text-sm font-medium" role="list">
+        <li><a href="#benefits" class="block px-3 py-2 rounded hover:bg-white/5 focus-outline">Benefits</a></li>
+        <li><a href="#services" class="block px-3 py-2 rounded hover:bg-white/5 focus-outline">Services</a></li>
+        <li><a href="#how" class="block px-3 py-2 rounded hover:bg-white/5 focus-outline">How It Works</a></li>
+        <li><a href="#testimonials" class="block px-3 py-2 rounded hover:bg-white/5 focus-outline">Testimonials</a></li>
+        <li><a href="#faq" class="block px-3 py-2 rounded hover:bg-white/5 focus-outline">FAQ</a></li>
+        <li><a href="#contact" class="block px-3 py-2 rounded hover:bg-white/5 focus-outline">Contact</a></li>
+        <li><a href="#contact" class="block mt-2 px-3 py-2 rounded bg-sky-500 text-slate-900 font-semibold text-center hover:bg-sky-400 focus-outline">Book a Free 15-min Call</a></li>
+      </ul>
+    </div>
+  </header>
+  <section id="hero" class="relative gradient-hero pt-20 md:pt-28 pb-24 md:pb-32 overflow-hidden" aria-labelledby="hero-title">
+    <div class="bg-mesh pointer-events-none" aria-hidden="true"><svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#38bdf8" stop-opacity="0.5" /><stop offset="100%" stop-color="#6366f1" stop-opacity="0.15" /></linearGradient></defs><circle cx="180" cy="200" r="180" fill="url(#g1)"></circle><circle cx="420" cy="360" r="220" fill="url(#g1)"></circle></svg></div>
+    <div class="relative max-w-7xl mx-auto px-4"><div class="max-w-3xl animate-fade-up"><h1 id="hero-title" class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">Practical AI for People Who <span class="gradient-text">Don't Code.</span></h1><p class="text-lg sm:text-xl text-slate-300 max-w-2xl mb-8">We set up your tools, teach your team, and stay available for questions—so AI actually sticks. Faster analysis. Better summaries. Clearer decisions. Step-by-step with patience.</p><div class="flex flex-col sm:flex-row gap-4"><a href="#contact" class="focus-outline inline-flex items-center justify-center px-6 py-4 rounded-md text-base font-semibold bg-sky-500 hover:bg-sky-400 text-slate-900 shadow-lg shadow-sky-500/25 transition" aria-label="Book a free 15 minute call now">Book a Free 15-min Call</a><a href="#demo" class="focus-outline inline-flex items-center justify-center px-6 py-4 rounded-md text-base font-semibold glass hover:bg-white/10 transition" aria-label="Watch a 3 minute demo">Watch a 3-minute Demo</a></div><div class="mt-10 flex flex-wrap items-center gap-6 text-xs font-medium text-slate-400"><div class="flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full bg-sky-400"></span> Beginner-Friendly</div><div class="flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full bg-sky-400"></span> Hands-On Examples</div><div class="flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full bg-sky-400"></span> Reusable Prompts</div><div class="flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full bg-sky-400"></span> Ongoing Support</div></div></div></div>
+  </section>
+  <section aria-label="Trust badges" class="py-10 bg-[#0b1324] border-y border-white/5"><div class="max-w-7xl mx-auto px-4"><div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 text-slate-400 text-xs font-medium tracking-wide"><div class="flex items-center gap-2"><span class="w-8 h-8 rounded-full glass flex items-center justify-center text-sky-300" aria-hidden="true">🏁</span> Beginner-Friendly</div><div class="flex items-center gap-2"><span class="w-8 h-8 rounded-full glass flex items-center justify-center text-sky-300" aria-hidden="true">⚡</span> Fast Wins</div><div class="flex items-center gap-2"><span class="w-8 h-8 rounded-full glass flex items-center justify-center text-sky-300" aria-hidden="true">🧭</span> Guided Prompts</div><div class="flex items-center gap-2"><span class="w-8 h-8 rounded-full glass flex items-center justify-center text-sky-300" aria-hidden="true">🤝</span> Ongoing Support</div><div class="flex items-center gap-2"><span class="w-8 h-8 rounded-full glass flex items-center justify-center text-sky-300" aria-hidden="true">🔒</span> Data Respect</div></div></div></section>
+  <section id="benefits" aria-labelledby="benefits-title" class="py-24 bg-[#0d1528] relative overflow-hidden">... (truncated for brevity in this commit) ...
+  <!-- NOTE: Full content should be added here. -->
+  <footer class="border-t border-white/5 bg-[#0b1324] py-12 mt-24"><div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-10"><div><h3 class="font-semibold mb-4">HighCloud AI</h3><p class="text-sm text-slate-400">Practical AI adoption for teams and individuals without code.</p></div><div><h4 class="text-sm font-semibold mb-3">Explore</h4><ul class="space-y-2 text-sm text-slate-400" role="list"><li><a href="#benefits" class="hover:text-sky-300">Benefits</a></li><li><a href="#services" class="hover:text-sky-300">Services</a></li><li><a href="#how" class="hover:text-sky-300">Process</a></li><li><a href="#pricing" class="hover:text-sky-300">Pricing</a></li></ul></div><div><h4 class="text-sm font-semibold mb-3">Support</h4><ul class="space-y-2 text-sm text-slate-400" role="list"><li><a href="#faq" class="hover:text-sky-300">FAQ</a></li><li><a href="#contact" class="hover:text-sky-300">Contact</a></li><li><a href="#" class="hover:text-sky-300">Status</a></li></ul></div><div><h4 class="text-sm font-semibold mb-3">Stay Updated</h4><p class="text-sm text-slate-400 mb-3">Get occasional practical AI tips.</p><form class="space-y-3" onsubmit="event.preventDefault(); makeToast('Subscribed (demo).'); this.reset();"><input type="email" required placeholder="Email" class="w-full text-sm px-3 py-2 rounded bg-white/5 border border-white/10 focus:border-sky-400 focus:outline-none" aria-label="Email for tips"/><button class="w-full text-sm font-semibold px-3 py-2 rounded bg-sky-500 text-slate-900 hover:bg-sky-400 transition">Subscribe</button></form></div></div><div class="mt-10 pt-8 border-t border-white/5 text-center text-xs text-slate-500">&copy; <span id="year"></span> HighCloud AI. All rights reserved.</div></footer>
+  <div class="mobile-cta-bar md:hidden" role="complementary" aria-label="Mobile call to action bar"><span class="text-xs font-medium">Ready to explore?</span><a href="#contact" class="text-xs font-semibold px-3 py-2 rounded bg-sky-500 text-slate-900 hover:bg-sky-400">Book Call</a></div>
+  <script>
+    const throttle = (fn, wait=150) => { let last=0; return (...args)=>{ const now=Date.now(); if(now-last>=wait){ last=now; fn(...args);} }; };
+    const sections = [...document.querySelectorAll('section[id]')];
+    const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
+    const activate = () => { const scrollY = window.scrollY + 120; let current = null; for (const sec of sections) { if (scrollY >= sec.offsetTop && scrollY < sec.offsetTop + sec.offsetHeight) { current = sec.id; break; } } navLinks.forEach(l => l.classList.toggle('nav-active', l.getAttribute('href') === '#' + current)); };
+    window.addEventListener('scroll', throttle(activate, 150));
+    activate();
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    mobileBtn.addEventListener('click', () => { const expanded = mobileBtn.getAttribute('aria-expanded') === 'true'; mobileBtn.setAttribute('aria-expanded', String(!expanded)); mobileNav.classList.toggle('hidden'); });
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => { const summary = item.querySelector('summary'); summary.addEventListener('click', e => { e.preventDefault(); const isOpen = item.hasAttribute('open'); faqItems.forEach(i => i.removeAttribute('open')); if (!isOpen) item.setAttribute('open',''); }); });
+    const form = document.querySelector('form[action="#"]') || document.querySelector('form');
+    function showError(input, msg) { let err = document.querySelector('[data-error-for="'+input.id+'"]; if(!err){ err=document.createElement('div'); err.dataset.errorFor=input.id; err.className='text-xs text-rose-400 mt-1'; input.insertAdjacentElement('afterend', err);} err.textContent=msg; }
+    function clearError(input){ const err=document.querySelector('[data-error-for="'+input.id+'"]; if(err) err.remove(); }
+    function makeToast(message){ const t=document.createElement('div'); t.className='toast'; t.setAttribute('role','status'); t.innerHTML='<span>'+message+'</span><button aria-label="Dismiss" class="ml-2 text-slate-400 hover:text-slate-200" onclick="this.parentElement.remove()">✕</button>'; document.body.appendChild(t); setTimeout(()=>t.remove(),5000); }
+    form?.addEventListener('submit', e => { e.preventDefault(); let valid=true; const email=form.querySelector('input[type="email"]'); const name=form.querySelector('input[name="name"]')||form.querySelector('input:not([type=email])'); const message=form.querySelector('textarea'); const emailVal=email?.value.trim()||''; if(email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emailVal)){ showError(email,'Enter a valid email'); valid=false;} else if(email) clearError(email); if(name && name.value.trim().length<2){ showError(name,'Too short'); valid=false;} else if(name) clearError(name); if(message && message.value.trim().length<10){ showError(message,'Add a bit more detail'); valid=false;} else if(message) clearError(message); if(!valid) return; makeToast('Message sent (demo).'); form.reset(); });
+    const helpBtn=document.createElement('button'); helpBtn.className='fixed bottom-4 right-4 w-12 h-12 rounded-full bg-sky-500 text-slate-900 font-semibold shadow-lg hover:bg-sky-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-400'; helpBtn.textContent='?'; helpBtn.setAttribute('aria-label','Open help panel'); document.body.appendChild(helpBtn);
+    const panel=document.createElement('div'); panel.className='help-panel glass rounded-xl p-5 shadow-xl'; panel.innerHTML='<h3 class="font-semibold mb-3 text-sm">Need a quick answer?</h3><div class="space-y-2 text-xs" id="help-qs"></div><button class="mt-4 text-xs font-medium text-sky-300 hover:text-sky-200" id="closeHelp">Close</button>'; document.body.appendChild(panel);
+    const qs=[['What if I am brand new?','Yes, everything is beginner-friendly. We build step-by-step.'],['Do I need special software?','No. We guide setup or use browser-based tools.'],['How soon do I see value?','Usually in the very first session.']];
+    const qWrap=panel.querySelector('#help-qs'); qs.forEach(([q,a])=>{ const b=document.createElement('button'); b.className='block w-full text-left px-3 py-2 rounded bg-white/5 hover:bg-white/10'; b.textContent=q; b.addEventListener('click',()=>makeToast(a)); qWrap.appendChild(b); });
+    helpBtn.addEventListener('click',()=>panel.classList.toggle('active')); panel.querySelector('#closeHelp').addEventListener('click',()=>panel.classList.remove('active'));
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){ document.querySelectorAll('.animate-fade-up').forEach(el=>{ el.style.animation='none'; el.style.opacity='1'; el.style.transform='none'; }); }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

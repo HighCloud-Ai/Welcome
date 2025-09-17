@@ -6,29 +6,707 @@
   <title>Practical AI Training for Non-Coders | HighCloud AI</title>
   <meta name="description" content="Practical, hands-on AI setup, training, and ongoing support for people who don't code. Learn to get real results with AI step-by-step." />
   <meta name="theme-color" content="#0f172a" />
-  <meta http-equiv="cache-control" content="public, max-age=3600" />
+  <!-- Open Graph -->
   <meta property="og:title" content="Practical AI for People Who Don't Code" />
   <meta property="og:description" content="We set up your tools, teach your team, and stay available for questions—so AI actually sticks." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://xthreo.github.io/highcloud-ai" />
-  <meta property="og:image" content="https://xthreo.github.io/highcloud-ai/og-image.png" />
+  <meta property="og:image" content="https://xthreo.github.io/highcloud-ai/assets/images/og-image.png" />
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Practical AI for People Who Don't Code" />
   <meta name="twitter:description" content="Hands-on AI setup, training & support for non-coders." />
-  <meta name="twitter:image" content="https://xthreo.github.io/highcloud-ai/og-image.png" />
+  <meta name="twitter:image" content="https://xthreo.github.io/highcloud-ai/assets/images/og-image.png" />
   <link rel="canonical" href="https://xthreo.github.io/highcloud-ai" />
+  <!-- Favicon & Icons -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" href="favicon.ico" />
+  <meta name="color-scheme" content="dark light" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" /></noscript>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <!-- Plausible Analytics (privacy-friendly). Replace domain if custom domain is added. -->
   <script defer data-domain="xthreo.github.io" src="https://plausible.io/js/script.js"></script>
-  <style>/* styles omitted for brevity in commit message context */</style>
+  <!-- TODO: Replace og-image.png once actual OG image asset added. -->
+  <style>
+    :root {
+      --bg-gradient: radial-gradient(circle at 20% 20%, rgba(56,189,248,0.08), transparent 60%), radial-gradient(circle at 80% 60%, rgba(14,165,233,0.10), transparent 65%), linear-gradient(135deg,#0f172a,#0a1120);
+    }
+    html { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+    body { background: #0b1324; color: #f1f5f9; min-height: 100%; }
+    .gradient-hero { background: var(--bg-gradient); position: relative; overflow: hidden; }
+  .glass { background: rgba(255,255,255,0.05); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+    .animate-fade-up { opacity: 0; transform: translateY(12px); animation: fadeUp 0.8s ease forwards; }
+    @keyframes fadeUp { to { opacity:1; transform: translateY(0);} }
+  .gradient-text { background: linear-gradient(90deg,#38bdf8,#06b6d4,#4f46e5); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .focus-outline:focus-visible { outline: 2px solid #38bdf8; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { .animate-fade-up { animation: none; opacity: 1; transform:none; } * { scroll-behavior: auto !important; } }
+    .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus { position:static; width:auto; height:auto; padding:0.75rem 1rem; background:#0ea5e9; color:#0f172a; font-weight:600; z-index:50; }
+    .nav-active { color:#38bdf8; }
+    .timeline:before { content:""; position:absolute; left:1.25rem; top:0; bottom:0; width:2px; background:linear-gradient(#38bdf8,#0ea5e9); }
+    .faq-item[open] summary svg { transform: rotate(180deg); }
+    .toast { position:fixed; bottom:1.25rem; right:1.25rem; background:#0f172a; color:#f8fafc; padding:0.75rem 1rem; border-radius:0.5rem; box-shadow:0 4px 18px -2px rgba(0,0,0,0.5); display:flex; align-items:center; gap:0.5rem; font-size:0.875rem; }
+    .help-panel { position:fixed; bottom:5rem; right:1rem; width:300px; max-width:92vw; transform:translateY(16px); opacity:0; pointer-events:none; transition: all .3s ease; }
+    .help-panel.active { transform:translateY(0); opacity:1; pointer-events:auto; }
+    .bg-mesh { position:absolute; inset:0; overflow:hidden; }
+    .bg-mesh svg { width:140%; height:140%; filter:blur(60px); opacity:0.40; }
+  .mobile-cta-bar { position:fixed; left:0; right:0; bottom:0; background:rgba(15,23,42,0.85); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); padding:0.75rem 1rem; display:none; }
+    @media (max-width: 768px) { .mobile-cta-bar { display:flex; justify-content:space-between; align-items:center; } }
+  </style>
 </head>
 <body class="antialiased leading-relaxed">
-  <!-- Full content restored (see local working copy for full markup) -->
-  RESTORED_FULL_CONTENT_PLACEHOLDER
+  <a href="#main" class="skip-link focus-outline">Skip to content</a>
+  <!-- Navigation -->
+  ...existing code...
+=======
+  <meta property="og:image" content="https://xthreo.github.io/highcloud-ai/assets/images/og-image.png" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Practical AI for People Who Don't Code" />
+  <meta name="twitter:description" content="Hands-on AI setup, training & support for non-coders." />
+  <meta name="twitter:image" content="https://xthreo.github.io/highcloud-ai/assets/images/og-image.png" />
+  <link rel="canonical" href="https://xthreo.github.io/highcloud-ai" />
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" href="favicon.ico" />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <!-- Plausible Analytics (privacy-friendly). Replace domain if custom domain is added. -->
+  <script defer data-domain="xthreo.github.io" src="https://plausible.io/js/script.js"></script>
+  <!-- TODO: Replace og-image.png once actual OG image asset added. -->
+  <style>
+    :root {
+      --bg-gradient: radial-gradient(circle at 20% 20%, rgba(56,189,248,0.08), transparent 60%), radial-gradient(circle at 80% 60%, rgba(14,165,233,0.10), transparent 65%), linear-gradient(135deg,#0f172a,#0a1120);
+    }
+    html { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+    body { background: #0b1324; color: #f1f5f9; min-height: 100%; }
+    .gradient-hero { background: var(--bg-gradient); position: relative; overflow: hidden; }
+  .glass { background: rgba(255,255,255,0.05); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+    .animate-fade-up { opacity: 0; transform: translateY(12px); animation: fadeUp 0.8s ease forwards; }
+    @keyframes fadeUp { to { opacity:1; transform: translateY(0);} }
+  .gradient-text { background: linear-gradient(90deg,#38bdf8,#06b6d4,#4f46e5); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .focus-outline:focus-visible { outline: 2px solid #38bdf8; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { .animate-fade-up { animation: none; opacity: 1; transform:none; } * { scroll-behavior: auto !important; } }
+    .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus { position:static; width:auto; height:auto; padding:0.75rem 1rem; background:#0ea5e9; color:#0f172a; font-weight:600; z-index:50; }
+    .nav-active { color:#38bdf8; }
+    .timeline:before { content:""; position:absolute; left:1.25rem; top:0; bottom:0; width:2px; background:linear-gradient(#38bdf8,#0ea5e9); }
+    .faq-item[open] summary svg { transform: rotate(180deg); }
+    .toast { position:fixed; bottom:1.25rem; right:1.25rem; background:#0f172a; color:#f8fafc; padding:0.75rem 1rem; border-radius:0.5rem; box-shadow:0 4px 18px -2px rgba(0,0,0,0.5); display:flex; align-items:center; gap:0.5rem; font-size:0.875rem; }
+    .help-panel { position:fixed; bottom:5rem; right:1rem; width:300px; max-width:92vw; transform:translateY(16px); opacity:0; pointer-events:none; transition: all .3s ease; }
+    .help-panel.active { transform:translateY(0); opacity:1; pointer-events:auto; }
+    .bg-mesh { position:absolute; inset:0; overflow:hidden; }
+    .bg-mesh svg { width:140%; height:140%; filter:blur(60px); opacity:0.40; }
+  .mobile-cta-bar { position:fixed; left:0; right:0; bottom:0; background:rgba(15,23,42,0.85); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); padding:0.75rem 1rem; display:none; }
+    @media (max-width: 768px) { .mobile-cta-bar { display:flex; justify-content:space-between; align-items:center; } }
+  </style>
+</head>
+<body class="antialiased leading-relaxed">
+  <a href="#main" class="skip-link focus-outline">Skip to content</a>
+  <!-- Navigation -->
+  <header class="sticky top-0 z-40 bg-[#0f172acc] backdrop-blur border-b border-white/5" role="banner">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between gap-6 px-4 py-3" aria-label="Primary">
+      <div class="flex items-center gap-8">
+        <a href="#hero" class="font-extrabold text-xl tracking-tight gradient-text focus-outline" aria-label="HighCloud AI Home">HighCloud<span class="text-sky-400">AI</span></a>
+        <ul class="hidden md:flex items-center gap-6 text-sm font-medium" role="list">
+          <li><a href="#benefits" class="hover:text-sky-300 focus-outline py-2 block">Benefits</a></li>
+          <li><a href="#services" class="hover:text-sky-300 focus-outline py-2 block">Services</a></li>
+          <li><a href="#how" class="hover:text-sky-300 focus-outline py-2 block">How It Works</a></li>
+          <li><a href="#testimonials" class="hover:text-sky-300 focus-outline py-2 block">Testimonials</a></li>
+          <li><a href="#faq" class="hover:text-sky-300 focus-outline py-2 block">FAQ</a></li>
+          <li><a href="#contact" class="hover:text-sky-300 focus-outline py-2 block">Contact</a></li>
+        </ul>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden sm:inline-flex focus-outline text-sm font-semibold px-4 py-2 rounded-md bg-sky-500 hover:bg-sky-400 text-slate-900 shadow transition" aria-label="Book a free 15 minute call">Book a Call</a>
+        <button id="mobileMenuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md glass focus-outline" aria-expanded="false" aria-controls="mobileNav" aria-label="Open navigation menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobileNav" class="md:hidden hidden border-t border-white/5" aria-label="Mobile navigation">
+      <ul class="px-4 py-4 space-y-2 text-sm font-medium" role="list">
+        <li><a href="#benefits" class="block px-3 py-2 rounded hover:bg-white/5 focus-outline">Benefits</a></li>
+        <li><a href="#services" class="block px-3 py-2 rounded hover:bg-white/5 focus-outline">Services</a></li>
+        <li><a href="#how" class="block px-3 py-2 rounded hover:bg-white/5 focus-outline">How It Works</a></li>
+        <li><a href="#testimonials" class="block px-3 py-2 rounded hover:bg-white/5 focus-outline">Testimonials</a></li>
+        <li><a href="#faq" class="block px-3 py-2 rounded hover:bg-white/5 focus-outline">FAQ</a></li>
+        <li><a href="#contact" class="block px-3 py-2 rounded hover:bg-white/5 focus-outline">Contact</a></li>
+        <li><a href="#contact" class="block mt-2 px-3 py-2 rounded bg-sky-500 text-slate-900 font-semibold text-center hover:bg-sky-400 focus-outline">Book a Free 15-min Call</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative gradient-hero pt-20 md:pt-28 pb-24 md:pb-32 overflow-hidden" aria-labelledby="hero-title">
+    <div class="bg-mesh pointer-events-none" aria-hidden="true">
+      <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.5" />
+            <stop offset="100%" stop-color="#6366f1" stop-opacity="0.15" />
+          </linearGradient>
+        </defs>
+        <circle cx="180" cy="200" r="180" fill="url(#g1)"></circle>
+        <circle cx="420" cy="360" r="220" fill="url(#g1)"></circle>
+      </svg>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4">
+      <div class="max-w-3xl animate-fade-up">
+        <h1 id="hero-title" class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+          Practical AI for People Who <span class="gradient-text">Don't Code.</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mb-8">We set up your tools, teach your team, and stay available for questions—so AI actually sticks. Faster analysis. Better summaries. Clearer decisions. Step-by-step with patience.</p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#contact" class="focus-outline inline-flex items-center justify-center px-6 py-4 rounded-md text-base font-semibold bg-sky-500 hover:bg-sky-400 text-slate-900 shadow-lg shadow-sky-500/25 transition" aria-label="Book a free 15 minute call now">Book a Free 15-min Call</a>
+          <a href="#demo" class="focus-outline inline-flex items-center justify-center px-6 py-4 rounded-md text-base font-semibold glass hover:bg-white/10 transition" aria-label="Watch a 3 minute demo">Watch a 3-minute Demo</a>
+        </div>
+        <div class="mt-10 flex flex-wrap items-center gap-6 text-xs font-medium text-slate-400">
+          <div class="flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full bg-sky-400"></span> Beginner-Friendly</div>
+          <div class="flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full bg-sky-400"></span> Hands-On Examples</div>
+          <div class="flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full bg-sky-400"></span> Reusable Prompts</div>
+          <div class="flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full bg-sky-400"></span> Ongoing Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Trust Row / Badges -->
+  <section aria-label="Trust badges" class="py-10 bg-[#0b1324] border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 text-slate-400 text-xs font-medium tracking-wide">
+        <div class="flex items-center gap-2"><span class="w-8 h-8 rounded-full glass flex items-center justify-center text-sky-300" aria-hidden="true">🏁</span> Beginner-Friendly</div>
+        <div class="flex items-center gap-2"><span class="w-8 h-8 rounded-full glass flex items-center justify-center text-sky-300" aria-hidden="true">⚡</span> Fast Wins</div>
+        <div class="flex items-center gap-2"><span class="w-8 h-8 rounded-full glass flex items-center justify-center text-sky-300" aria-hidden="true">🧭</span> Guided Prompts</div>
+        <div class="flex items-center gap-2"><span class="w-8 h-8 rounded-full glass flex items-center justify-center text-sky-300" aria-hidden="true">🤝</span> Ongoing Support</div>
+        <div class="flex items-center gap-2"><span class="w-8 h-8 rounded-full glass flex items-center justify-center text-sky-300" aria-hidden="true">🔒</span> Data Respect</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section id="benefits" aria-labelledby="benefits-title" class="py-24 bg-[#0d1528] relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none opacity-40" aria-hidden="true">
+      <div class="absolute -top-40 -left-32 w-96 h-96 rounded-full bg-gradient-to-br from-sky-600/20 to-cyan-400/10 blur-3xl"></div>
+      <div class="absolute top-1/3 -right-32 w-[30rem] h-[30rem] rounded-full bg-gradient-to-tr from-indigo-600/10 to-sky-500/10 blur-3xl"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4">
+      <div class="max-w-2xl mb-14">
+        <h2 id="benefits-title" class="text-2xl sm:text-4xl font-bold tracking-tight mb-4">Clear Benefits. Real Outcomes.</h2>
+        <p class="text-slate-300 text-lg">You don’t need to learn to code. You just need the right setup, a few reusable prompts, and a human who answers your questions patiently.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <!-- Card 1 -->
+        <div class="group relative rounded-xl p-6 glass hover:bg-white/10 transition" aria-labelledby="b1-title">
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-sky-500/20 to-cyan-400/10 text-sky-300 ring-1 ring-white/10">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v6l4 2"/></svg>
+            </span>
+          </div>
+          <h3 id="b1-title" class="font-semibold text-lg mb-2">Real Results Fast</h3>
+          <p class="text-sm text-slate-300">See time saved in the very first session—no theory marathons.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="group relative rounded-xl p-6 glass hover:bg-white/10 transition" aria-labelledby="b2-title">
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-sky-500/20 to-cyan-400/10 text-sky-300 ring-1 ring-white/10">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M4 6h10M4 18h6"/></svg>
+            </span>
+          </div>
+          <h3 id="b2-title" class="font-semibold text-lg mb-2">No Coding Required</h3>
+          <p class="text-sm text-slate-300">Everything is explained in plain language. You click and try.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="group relative rounded-xl p-6 glass hover:bg-white/10 transition" aria-labelledby="b3-title">
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-sky-500/20 to-cyan-400/10 text-sky-300 ring-1 ring-white/10">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20v-6m0 0 4 4m-4-4-4 4M12 4v6m0 0 4-4m-4 4-4-4"/></svg>
+            </span>
+          </div>
+          <h3 id="b3-title" class="font-semibold text-lg mb-2">Step-by-Step Guidance</h3>
+          <p class="text-sm text-slate-300">We build prompts together so you can reuse them anytime.</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="group relative rounded-xl p-6 glass hover:bg-white/10 transition" aria-labelledby="b4-title">
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-sky-500/20 to-cyan-400/10 text-sky-300 ring-1 ring-white/10">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>
+            </span>
+          </div>
+          <h3 id="b4-title" class="font-semibold text-lg mb-2">Ongoing Support</h3>
+          <p class="text-sm text-slate-300">Ask questions later so momentum never stalls or fades.</p>
+        </div>
+      </div>
+      <div class="mt-12">
+        <a href="#services" class="inline-flex items-center gap-2 text-sm font-semibold text-sky-300 hover:text-sky-200 focus-outline">
+          See Services
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Services -->
+  <section id="services" aria-labelledby="services-title" class="py-24 bg-[#0b1324]">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="max-w-2xl mb-14">
+        <h2 id="services-title" class="text-2xl sm:text-4xl font-bold tracking-tight mb-4">Services Built For You.</h2>
+        <p class="text-slate-300 text-lg">Choose one or combine. Every option is practical, human, and built around your actual work—not abstract theory.</p>
+      </div>
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-7">
+        <!-- Service 1 -->
+        <article class="group relative flex flex-col rounded-xl p-6 glass hover:bg-white/10 transition" aria-labelledby="s1-title">
+          <div class="flex items-center justify-between mb-5">
+            <span class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-sky-500/10 text-sky-300 ring-1 ring-white/10">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18M3 10h18M9 16h12M9 22h12"/><path d="M6 16v6"/></svg>
+            </span>
+          </div>
+          <h3 id="s1-title" class="font-semibold text-lg mb-3">Practical AI for Data & Papers</h3>
+          <p class="text-sm text-slate-300 mb-4">Turn messy data and research papers into clear summaries, insights, charts, and draft reports—using guided prompts you can reuse.</p>
+          <ul class="text-xs text-slate-400 space-y-2 mb-5">
+            <li class="flex items-start gap-2"><span class="text-sky-400">✔</span> Structured summary templates</li>
+            <li class="flex items-start gap-2"><span class="text-sky-400">✔</span> Rapid insight extraction</li>
+            <li class="flex items-start gap-2"><span class="text-sky-400">✔</span> Clean chart-ready output</li>
+          </ul>
+          <a href="#contact" class="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-sky-300 hover:text-sky-200 focus-outline">Get Started <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <!-- Service 2 -->
+        <article class="group relative flex flex-col rounded-xl p-6 glass hover:bg-white/10 transition" aria-labelledby="s2-title">
+          <div class="flex items-center justify-between mb-5">
+            <span class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-sky-500/10 text-sky-300 ring-1 ring-white/10">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 20h12"/><path d="M7 16h10l1-6H6l1 6Z"/><path d="M5 8h14"/><path d="M9 4h6"/></svg>
+            </span>
+          </div>
+          <h3 id="s2-title" class="font-semibold text-lg mb-3">AI-Ready Desktop Setup</h3>
+          <p class="text-sm text-slate-300 mb-4">We configure your computer with the right AI tools so everything just works when you sit down to use it.</p>
+          <ul class="text-xs text-slate-400 space-y-2 mb-5">
+            <li class="flex items-start gap-2"><span class="text-sky-400">✔</span> Tool installation & cleanup</li>
+            <li class="flex items-start gap-2"><span class="text-sky-400">✔</span> Organized workspace</li>
+            <li class="flex items-start gap-2"><span class="text-sky-400">✔</span> Upgrade path explained</li>
+          </ul>
+          <a href="#contact" class="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-sky-300 hover:text-sky-200 focus-outline">Request Setup <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <!-- Service 3 -->
+        <article class="group relative flex flex-col rounded-xl p-6 glass hover:bg-white/10 transition" aria-labelledby="s3-title">
+          <div class="flex items-center justify-between mb-5">
+            <span class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-sky-500/10 text-sky-300 ring-1 ring-white/10">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12v8"/><path d="M8 12v8"/><path d="M16 12v8"/><path d="M4 4h16v4H4z"/></svg>
+            </span>
+          </div>
+          <h3 id="s3-title" class="font-semibold text-lg mb-3">Hands-On Team Training</h3>
+          <p class="text-sm text-slate-300 mb-4">Short, practical workshops that help everyone apply AI in daily tasks—no jargon, just real examples.</p>
+          <ul class="text-xs text-slate-400 space-y-2 mb-5">
+            <li class="flex items-start gap-2"><span class="text-sky-400">✔</span> Role-based use cases</li>
+            <li class="flex items-start gap-2"><span class="text-sky-400">✔</span> Live prompt building</li>
+            <li class="flex items-start gap-2"><span class="text-sky-400">✔</span> Adoption checklist</li>
+          </ul>
+            <a href="#contact" class="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-sky-300 hover:text-sky-200 focus-outline">Plan a Workshop <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <!-- Service 4 -->
+        <article class="group relative flex flex-col rounded-xl p-6 glass hover:bg-white/10 transition" aria-labelledby="s4-title">
+          <div class="flex items-center justify-between mb-5">
+            <span class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-sky-500/10 text-sky-300 ring-1 ring-white/10">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10v10"/><path d="M16 4v16"/><path d="M12 14v6"/></svg>
+            </span>
+          </div>
+          <h3 id="s4-title" class="font-semibold text-lg mb-3">Ongoing Q&A Support</h3>
+          <p class="text-sm text-slate-300 mb-4">Ask questions anytime so adoption stays on track and stress-free.</p>
+          <ul class="text-xs text-slate-400 space-y-2 mb-5">
+            <li class="flex items-start gap-2"><span class="text-sky-400">✔</span> Email / async answers</li>
+            <li class="flex items-start gap-2"><span class="text-sky-400">✔</span> Prompt refinements</li>
+            <li class="flex items-start gap-2"><span class="text-sky-400">✔</span> Use case suggestions</li>
+          </ul>
+          <a href="#contact" class="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-sky-300 hover:text-sky-200 focus-outline">Stay Supported <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- How It Works -->
+  <section id="how" aria-labelledby="how-title" class="py-24 bg-[#0d1528] relative">
+    <div class="absolute inset-0 pointer-events-none opacity-30" aria-hidden="true">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50rem] h-[50rem] rounded-full bg-gradient-to-tr from-sky-600/10 to-cyan-500/10 blur-3xl"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4">
+      <div class="max-w-2xl mb-14">
+        <h2 id="how-title" class="text-2xl sm:text-4xl font-bold tracking-tight mb-4">Simple, Calm Process.</h2>
+        <p class="text-slate-300 text-lg">Four steps. No overwhelm. You always know what’s next.</p>
+      </div>
+      <ol class="relative timeline pl-10 space-y-10" role="list">
+        <li class="relative">
+          <div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-sky-600 ring-4 ring-[#0d1528]"></div>
+          <div class="glass rounded-lg p-5 md:p-6">
+            <h3 class="font-semibold mb-1">1. Quick Call</h3>
+            <p class="text-sm text-slate-300">We learn your goals and where time is being lost.</p>
+          </div>
+        </li>
+        <li class="relative">
+          <div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-cyan-500 ring-4 ring-[#0d1528]"></div>
+          <div class="glass rounded-lg p-5 md:p-6">
+            <h3 class="font-semibold mb-1">2. Tailored Plan</h3>
+            <p class="text-sm text-slate-300">We map 2–3 fast-win AI tasks you’ll actually use.</p>
+          </div>
+        </li>
+        <li class="relative">
+          <div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-indigo-500 ring-4 ring-[#0d1528]"></div>
+          <div class="glass rounded-lg p-5 md:p-6">
+            <h3 class="font-semibold mb-1">3. Setup & Training</h3>
+            <p class="text-sm text-slate-300">We configure tools and build prompts together live.</p>
+          </div>
+        </li>
+        <li class="relative">
+          <div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-sky-400 ring-4 ring-[#0d1528]"></div>
+          <div class="glass rounded-lg p-5 md:p-6">
+            <h3 class="font-semibold mb-1">4. Ongoing Support</h3>
+            <p class="text-sm text-slate-300">You ask. We refine. Confidence and speed keep growing.</p>
+          </div>
+        </li>
+      </ol>
+      <div class="mt-12">
+        <a href="#contact" class="inline-flex items-center gap-2 text-sm font-semibold text-sky-300 hover:text-sky-200 focus-outline">Book a Free Call <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcome Before / After -->
+  <section aria-labelledby="outcome-title" class="py-24 bg-[#0b1324]">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="max-w-3xl mb-14">
+        <h2 id="outcome-title" class="text-2xl sm:text-4xl font-bold tracking-tight mb-4">What Changes After a Few Sessions?</h2>
+        <p class="text-slate-300 text-lg">You go from poking at tools to getting repeatable outcomes you trust.</p>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div class="rounded-2xl p-6 md:p-8 glass">
+          <h3 class="font-semibold text-xl mb-4">Before</h3>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex gap-2"><span class="text-rose-400">✖</span> Time lost rewriting prompts</li>
+            <li class="flex gap-2"><span class="text-rose-400">✖</span> Unsure if outputs are reliable</li>
+            <li class="flex gap-2"><span class="text-rose-400">✖</span> Manual summarizing & copying</li>
+            <li class="flex gap-2"><span class="text-rose-400">✖</span> Tools feel fragmented & messy</li>
+            <li class="flex gap-2"><span class="text-rose-400">✖</span> Low confidence showing work</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl p-6 md:p-8 glass">
+          <h3 class="font-semibold text-xl mb-4">After</h3>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex gap-2"><span class="text-emerald-400">✔</span> 30–70% faster first drafts</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✔</span> Structured prompts you reuse</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✔</span> Clear, cited summaries</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✔</span> Organized AI-ready workspace</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✔</span> Confident sharing with team</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-10 flex flex-col sm:flex-row gap-4">
+        <a href="#contact" class="focus-outline inline-flex items-center justify-center px-6 py-4 rounded-md text-base font-semibold bg-sky-500 hover:bg-sky-400 text-slate-900 shadow shadow-sky-500/25 transition">Book a Free 15-min Call</a>
+        <a href="#demo" class="focus-outline inline-flex items-center justify-center px-6 py-4 rounded-md text-base font-semibold glass hover:bg-white/10 transition">Watch a 3-minute Demo</a>
+      </div>
+    </div>
+  </section>
+  <!-- Testimonials -->
+  <section id="testimonials" aria-labelledby="testimonials-title" class="py-24 bg-[#0d1528]">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="max-w-2xl mb-14">
+        <h2 id="testimonials-title" class="text-2xl sm:text-4xl font-bold tracking-tight mb-4">People Are Getting Real Wins.</h2>
+        <p class="text-slate-300 text-lg">Short sessions. Immediate clarity. Less second-guessing. More time back.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <figure class="flex flex-col glass rounded-xl p-6" aria-label="Testimonial 1">
+          <figcaption class="flex items-center gap-3 mb-4">
+            <span class="w-12 h-12 rounded-full bg-gradient-to-br from-sky-500/30 to-cyan-500/20 flex items-center justify-center text-sky-100 text-sm font-semibold" aria-hidden="true">AB</span>
+            <div>
+              <p class="font-semibold text-sm">Alex B.</p>
+              <p class="text-xs text-slate-400">Research Coordinator</p>
+            </div>
+          </figcaption>
+          <blockquote class="text-sm text-slate-300">“Before this I spent hours manually summarizing articles. Now I have a trusted workflow that gets me a clean draft in minutes. The prompts we built together are gold.”</blockquote>
+        </figure>
+        <figure class="flex flex-col glass rounded-xl p-6" aria-label="Testimonial 2">
+          <figcaption class="flex items-center gap-3 mb-4">
+            <span class="w-12 h-12 rounded-full bg-gradient-to-br from-sky-500/30 to-cyan-500/20 flex items-center justify-center text-sky-100 text-sm font-semibold" aria-hidden="true">DT</span>
+            <div>
+              <p class="font-semibold text-sm">Dana T.</p>
+              <p class="text-xs text-slate-400">Operations Lead</p>
+            </div>
+          </figcaption>
+          <blockquote class="text-sm text-slate-300">“Tools finally feel simple. No judgment, just patient help. Our team adopted AI faster than I expected.”</blockquote>
+        </figure>
+        <figure class="flex flex-col glass rounded-xl p-6" aria-label="Testimonial 3">
+          <figcaption class="flex items-center gap-3 mb-4">
+            <span class="w-12 h-12 rounded-full bg-gradient-to-br from-sky-500/30 to-cyan-500/20 flex items-center justify-center text-sky-100 text-sm font-semibold" aria-hidden="true">MS</span>
+            <div>
+              <p class="font-semibold text-sm">Mark S.</p>
+              <p class="text-xs text-slate-400">Program Manager</p>
+            </div>
+          </figcaption>
+          <blockquote class="text-sm text-slate-300">“We now have reusable prompts for analysis, summaries, and emails. It’s like adding an extra teammate.”</blockquote>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing / Engagement -->
+  <section aria-labelledby="pricing-title" class="py-24 bg-[#0b1324]">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="max-w-3xl mb-14">
+        <h2 id="pricing-title" class="text-2xl sm:text-4xl font-bold tracking-tight mb-4">Start Small or Go Deeper.</h2>
+        <p class="text-slate-300 text-lg">Pick the entry point that fits. You can always upgrade later.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Plan 1 -->
+        <div class="relative flex flex-col rounded-2xl p-6 glass border border-white/10">
+          <div class="mb-4">
+            <h3 class="font-semibold text-lg">Starter Call</h3>
+            <p class="text-xs uppercase tracking-wide text-sky-300 font-medium mt-1">Free</p>
+          </div>
+          <p class="text-sm text-slate-300 mb-5">15 minutes to map a first win and see if we fit.</p>
+          <ul class="text-xs text-slate-400 space-y-2 mb-6">
+            <li class="flex gap-2"><span class="text-sky-400">✔</span> 1 quick use case</li>
+            <li class="flex gap-2"><span class="text-sky-400">✔</span> Fit & readiness check</li>
+            <li class="flex gap-2"><span class="text-sky-400">✔</span> Upgrade guidance</li>
+          </ul>
+          <a href="#contact" class="mt-auto inline-flex items-center justify-center rounded-md bg-sky-500 hover:bg-sky-400 text-slate-900 font-semibold text-sm px-5 py-3 focus-outline">Book Call</a>
+        </div>
+        <!-- Plan 2 -->
+        <div class="relative flex flex-col rounded-2xl p-6 glass border border-sky-500/40 ring-2 ring-sky-500/40">
+          <span class="absolute -top-3 left-4 bg-sky-500 text-slate-900 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wide">Most Popular</span>
+          <div class="mb-4">
+            <h3 class="font-semibold text-lg">Essentials Workshop</h3>
+            <p class="text-xs uppercase tracking-wide text-sky-300 font-medium mt-1">$ TBD</p>
+          </div>
+          <p class="text-sm text-slate-300 mb-5">Hands-on session building reusable prompts & first workflows.</p>
+          <ul class="text-xs text-slate-400 space-y-2 mb-6">
+            <li class="flex gap-2"><span class="text-sky-400">✔</span> 2–3 core tasks solved</li>
+            <li class="flex gap-2"><span class="text-sky-400">✔</span> Prompt template pack</li>
+            <li class="flex gap-2"><span class="text-sky-400">✔</span> Tool configuration</li>
+          </ul>
+          <a href="#contact" class="mt-auto inline-flex items-center justify-center rounded-md bg-sky-500 hover:bg-sky-400 text-slate-900 font-semibold text-sm px-5 py-3 focus-outline">Reserve Spot</a>
+        </div>
+        <!-- Plan 3 -->
+        <div class="relative flex flex-col rounded-2xl p-6 glass border border-white/10">
+          <div class="mb-4">
+            <h3 class="font-semibold text-lg">Team Package</h3>
+            <p class="text-xs uppercase tracking-wide text-sky-300 font-medium mt-1">Custom</p>
+          </div>
+          <p class="text-sm text-slate-300 mb-5">Training + setup + extended Q&A support across roles.</p>
+          <ul class="text-xs text-slate-400 space-y-2 mb-6">
+            <li class="flex gap-2"><span class="text-sky-400">✔</span> Role-based workflows</li>
+            <li class="flex gap-2"><span class="text-sky-400">✔</span> Shared prompt library</li>
+            <li class="flex gap-2"><span class="text-sky-400">✔</span> Ongoing adoption help</li>
+          </ul>
+          <a href="#contact" class="mt-auto inline-flex items-center justify-center rounded-md bg-sky-500 hover:bg-sky-400 text-slate-900 font-semibold text-sm px-5 py-3 focus-outline">Request Proposal</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FAQ -->
+  <section id="faq" aria-labelledby="faq-title" class="py-24 bg-[#0d1528]">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="max-w-2xl mb-14">
+        <h2 id="faq-title" class="text-2xl sm:text-4xl font-bold tracking-tight mb-4">Questions From First-Timers.</h2>
+        <p class="text-slate-300 text-lg">If you’re brand new, you’re in the right place.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Column 1 -->
+        <div class="space-y-4">
+          <details class="faq-item group rounded-lg glass p-5" aria-labelledby="fq1" role="group">
+            <summary class="flex cursor-pointer items-start gap-4 list-none"> 
+              <span class="flex-1">
+                <h3 id="fq1" class="font-semibold mb-1">Do I need to know how to code?</h3>
+                <p class="text-sm text-slate-300">No. We design everything for non-technical people.</p>
+              </span>
+              <span class="mt-1" aria-hidden="true"><svg class="w-5 h-5 transition" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+            </summary>
+          </details>
+          <details class="faq-item group rounded-lg glass p-5" aria-labelledby="fq2">
+            <summary class="flex cursor-pointer items-start gap-4 list-none">
+              <span class="flex-1">
+                <h3 id="fq2" class="font-semibold mb-1">Can we start small?</h3>
+                <p class="text-sm text-slate-300">Yes. A quick call + one small win builds momentum.</p>
+              </span>
+              <span class="mt-1" aria-hidden="true"><svg class="w-5 h-5 transition" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+            </summary>
+          </details>
+          <details class="faq-item group rounded-lg glass p-5" aria-labelledby="fq3">
+            <summary class="flex cursor-pointer items-start gap-4 list-none">
+              <span class="flex-1">
+                <h3 id="fq3" class="font-semibold mb-1">What tools do we use?</h3>
+                <p class="text-sm text-slate-300">We focus on accessible AI assistants and prompt structures.</p>
+              </span>
+              <span class="mt-1" aria-hidden="true"><svg class="w-5 h-5 transition" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+            </summary>
+          </details>
+          <details class="faq-item group rounded-lg glass p-5" aria-labelledby="fq4">
+            <summary class="flex cursor-pointer items-start gap-4 list-none">
+              <span class="flex-1">
+                <h3 id="fq4" class="font-semibold mb-1">Is my data safe?</h3>
+                <p class="text-sm text-slate-300">We guide safe handling. You choose what to share.</p>
+              </span>
+              <span class="mt-1" aria-hidden="true"><svg class="w-5 h-5 transition" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+            </summary>
+          </details>
+        </div>
+        <!-- Column 2 -->
+        <div class="space-y-4">
+          <details class="faq-item group rounded-lg glass p-5" aria-labelledby="fq5">
+            <summary class="flex cursor-pointer items-start gap-4 list-none">
+              <span class="flex-1">
+                <h3 id="fq5" class="font-semibold mb-1">How fast will I see results?</h3>
+                <p class="text-sm text-slate-300">Usually during the first or second session.</p>
+              </span>
+              <span class="mt-1" aria-hidden="true"><svg class="w-5 h-5 transition" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+            </summary>
+          </details>
+          <details class="faq-item group rounded-lg glass p-5" aria-labelledby="fq6">
+            <summary class="flex cursor-pointer items-start gap-4 list-none">
+              <span class="flex-1">
+                <h3 id="fq6" class="font-semibold mb-1">Will this replace my job?</h3>
+                <p class="text-sm text-slate-300">No—this helps you work faster and make better decisions.</p>
+              </span>
+              <span class="mt-1" aria-hidden="true"><svg class="w-5 h-5 transition" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+            </summary>
+          </details>
+          <details class="faq-item group rounded-lg glass p-5" aria-labelledby="fq7">
+            <summary class="flex cursor-pointer items-start gap-4 list-none">
+              <span class="flex-1">
+                <h3 id="fq7" class="font-semibold mb-1">Do you help after sessions?</h3>
+                <p class="text-sm text-slate-300">Yes—Q&A support keeps progress from fading.</p>
+              </span>
+              <span class="mt-1" aria-hidden="true"><svg class="w-5 h-5 transition" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+            </summary>
+          </details>
+          <details class="faq-item group rounded-lg glass p-5" aria-labelledby="fq8">
+            <summary class="flex cursor-pointer items-start gap-4 list-none">
+              <span class="flex-1">
+                <h3 id="fq8" class="font-semibold mb-1">Can you work with teams?</h3>
+                <p class="text-sm text-slate-300">Yes—training + shared prompts across roles is common.</p>
+              </span>
+              <span class="mt-1" aria-hidden="true"><svg class="w-5 h-5 transition" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+            </summary>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Contact / CTA -->
+  <section id="contact" aria-labelledby="contact-title" class="py-24 bg-[#0b1324]">
+    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12">
+      <div>
+        <h2 id="contact-title" class="text-2xl sm:text-4xl font-bold tracking-tight mb-6">Let’s Map Your First Win.</h2>
+        <p class="text-slate-300 text-lg mb-6">Book a free 15‑minute call or send a quick message. No pressure. We’ll see if there’s a clear, low-friction starting point.</p>
+        <div class="flex flex-col sm:flex-row gap-4 mb-10">
+          <a href="mailto:hello@example.com" class="focus-outline inline-flex items-center justify-center px-6 py-4 rounded-md text-base font-semibold glass hover:bg-white/10 transition" aria-label="Email us now">Email Us</a>
+          <a href="#" class="focus-outline inline-flex items-center justify-center px-6 py-4 rounded-md text-base font-semibold bg-sky-500 hover:bg-sky-400 text-slate-900 shadow shadow-sky-500/25 transition" aria-label="Book a free 15 minute call">Book a Free 15-min Call</a>
+        </div>
+        <div class="text-xs text-slate-400">We’ll never share your information. Ever.</div>
+      </div>
+      <form id="contactForm" class="glass rounded-2xl p-6 md:p-8 space-y-5" novalidate aria-describedby="form-note">
+        <div>
+          <label for="name" class="block text-sm font-medium mb-1">Name</label>
+          <input id="name" name="name" type="text" required autocomplete="name" class="w-full rounded-md bg-slate-900/40 border border-white/10 focus:border-sky-400 focus:ring-sky-400 text-sm" placeholder="Your name" />
+          <p class="mt-1 text-xs text-rose-400 hidden" data-error-for="name">Please enter your name.</p>
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium mb-1">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" class="w-full rounded-md bg-slate-900/40 border border-white/10 focus:border-sky-400 focus:ring-sky-400 text-sm" placeholder="you@example.com" />
+          <p class="mt-1 text-xs text-rose-400 hidden" data-error-for="email">Enter a valid email.</p>
+        </div>
+        <div>
+          <label for="message" class="block text-sm font-medium mb-1">Message</label>
+          <textarea id="message" name="message" rows="4" required class="w-full rounded-md bg-slate-900/40 border border-white/10 focus:border-sky-400 focus:ring-sky-400 text-sm" placeholder="What would you like to explore first?"></textarea>
+          <p class="mt-1 text-xs text-rose-400 hidden" data-error-for="message">Please add a short message.</p>
+        </div>
+        <button type="submit" class="w-full inline-flex items-center justify-center rounded-md bg-sky-500 hover:bg-sky-400 text-slate-900 font-semibold text-sm px-5 py-3 focus-outline">Send Message</button>
+        <p id="form-note" class="text-[11px] text-slate-400">Submitting creates a placeholder only—no data is sent yet.</p>
+      </form>
+    </div>
+  </section>
+  
+  <!-- Floating Help Button & Panel -->
+  <div class="help-panel glass rounded-xl p-4" id="helpPanel" aria-labelledby="help-title" aria-hidden="true">
+    <h3 id="help-title" class="font-semibold mb-3 text-sm">Need Help?</h3>
+    <ul class="space-y-3 text-xs text-slate-300">
+      <li><button class="text-left hover:text-sky-300 focus-outline w-full" data-qa="results">How fast do results show?</button></li>
+      <li><button class="text-left hover:text-sky-300 focus-outline w-full" data-qa="prompts">Do you teach me to build prompts?</button></li>
+      <li><button class="text-left hover:text-sky-300 focus-outline w-full" data-qa="support">What happens after training?</button></li>
+    </ul>
+  </div>
+  <button id="helpToggle" class="fixed bottom-20 right-4 md:right-6 rounded-full w-14 h-14 flex items-center justify-center bg-gradient-to-br from-sky-600 to-cyan-500 text-slate-900 font-semibold shadow-lg shadow-sky-600/40 focus-outline" aria-expanded="false" aria-controls="helpPanel" aria-label="Open quick help panel">?</button>
+
+  <!-- Footer -->
+  <footer class="bg-[#08101d] border-t border-white/5 py-12 text-sm" aria-labelledby="footer-title">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-10">
+      <div class="md:col-span-2">
+        <h3 id="footer-title" class="font-bold text-lg mb-4">HighCloud AI</h3>
+        <p class="text-slate-400 max-w-sm text-xs">Practical, patient AI enablement for people who don’t code. Clear wins. Reusable prompts. Ongoing support.</p>
+        <div class="mt-6 flex gap-4 text-xs text-slate-500">
+          <a href="#benefits" class="hover:text-sky-300 focus-outline">Benefits</a>
+          <a href="#services" class="hover:text-sky-300 focus-outline">Services</a>
+          <a href="#how" class="hover:text-sky-300 focus-outline">How</a>
+          <a href="#pricing-title" class="hover:text-sky-300 focus-outline">Pricing</a>
+          <a href="#faq" class="hover:text-sky-300 focus-outline">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-semibold text-sm mb-3">Contact</h4>
+        <ul class="space-y-2 text-xs text-slate-400">
+          <li><a href="mailto:hello@example.com" class="hover:text-sky-300 focus-outline">hello@example.com</a></li>
+          <li>Timezone: GMT+0 (adjustable)</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-sm mb-3">Legal</h4>
+        <ul class="space-y-2 text-xs text-slate-400">
+          <li><a href="#" class="hover:text-sky-300 focus-outline">Privacy</a></li>
+          <li><a href="#" class="hover:text-sky-300 focus-outline">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-white/5 text-[11px] text-slate-500 text-center">© <span id="year"></span> HighCloud AI. All rights reserved.</div>
+  </footer>
+  <script>
+    // Utility: throttle
+    function throttle(fn, wait){let t=0;return function(){const now=Date.now(); if(now-t>=wait){t=now; fn.apply(this,arguments);}}}
+    // Scroll Spy
+    const sections = ['hero','benefits','services','how','testimonials','faq','contact'];
+    const navLinks = Array.from(document.querySelectorAll('header nav a[href^="#"], #mobileNav a[href^="#"]'));
+    function onScroll(){const scrollPos = window.scrollY + 120; let current; sections.forEach(id=>{const el=document.getElementById(id); if(el && el.offsetTop <= scrollPos) current=id;}); navLinks.forEach(a=>{a.classList.toggle('nav-active', a.getAttribute('href') === '#' + current);}); }
+    document.addEventListener('scroll', throttle(onScroll,150));
+    // Mobile menu
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    if(mobileBtn){mobileBtn.addEventListener('click',()=>{const open = mobileNav.classList.toggle('hidden'); mobileBtn.setAttribute('aria-expanded', (!open).toString());});}
+    navLinks.forEach(a=>a.addEventListener('click',()=>{if(!mobileNav.classList.contains('hidden')) mobileNav.classList.add('hidden');}));
+    // FAQ: ensure only one open per column (optional)
+    document.querySelectorAll('#faq details').forEach(d=>{
+      d.addEventListener('toggle', e=>{if(d.open){document.querySelectorAll('#faq details').forEach(o=>{if(o!==d) o.removeAttribute('open');});}}
+      );
+    });
+    // Contact form validation & toast
+    const form = document.getElementById('contactForm');
+    function showError(input, msg){const p = form.querySelector('[data-error-for="'+input.id+'"]'); if(p){p.textContent=msg; p.classList.remove('hidden');} input.setAttribute('aria-invalid','true');}
+    function clearError(input){const p = form.querySelector('[data-error-for="'+input.id+'"]'); if(p){p.classList.add('hidden');} input.removeAttribute('aria-invalid');}
+    function makeToast(message){const t=document.createElement('div'); t.className='toast'; t.setAttribute('role','status'); t.innerHTML='<span>'+message+'</span><button aria-label="Dismiss" class="ml-2 text-sky-400 hover:text-sky-300" style="font-size:14px;">×</button>'; document.body.appendChild(t); const remove=()=>{t.style.opacity='0'; setTimeout(()=>t.remove(),300);}; t.querySelector('button').addEventListener('click',remove); setTimeout(remove,5000);}
+    if(form){form.addEventListener('submit', e=>{e.preventDefault(); let valid=true; ['name','email','message'].forEach(id=>{const input=form.querySelector('#'+id); if(!input.value.trim()){showError(input,'This field is required.'); valid=false;} else {if(id==='email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(input.value.trim())){showError(input,'Enter a valid email.'); valid=false;} else {clearError(input);}}}); if(valid){form.reset(); makeToast('Message queued (placeholder).');}});}
+    form?.querySelectorAll('input,textarea').forEach(el=>{el.addEventListener('input',()=>clearError(el));});
+    // Floating help panel
+    const helpToggle = document.getElementById('helpToggle');
+    const helpPanel = document.getElementById('helpPanel');
+    if(helpToggle && helpPanel){helpToggle.addEventListener('click',()=>{const active=helpPanel.classList.toggle('active'); helpToggle.setAttribute('aria-expanded', active.toString()); helpPanel.setAttribute('aria-hidden', (!active).toString());});}
+    const qaMap = {results:'Most people see useful time savings in the first session.',prompts:'Yes. We build prompts together you can reuse anytime.',support:'You can ask questions later so progress keeps compounding.'};
+    helpPanel?.querySelectorAll('[data-qa]').forEach(btn=>btn.addEventListener('click',()=>{const key=btn.getAttribute('data-qa'); if(key && qaMap[key]) makeToast(qaMap[key]);}));
+    // Dynamic year
+    const yearEl = document.getElementById('year'); if(yearEl) yearEl.textContent = new Date().getFullYear();
+    // Prefers reduced motion: disable animations if set
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('.animate-fade-up').forEach(el=>{el.style.animation='none'; el.style.opacity='1'; el.style.transform='none';});}
+  </script>
+  <main id="main"></main>
+  <div class="mobile-cta-bar md:hidden" aria-hidden="true">
+    <span class="text-sm font-medium">Ready to explore?</span>
+    <a href="#contact" class="px-4 py-2 rounded-md bg-sky-500 text-slate-900 font-semibold text-sm">Book a Call</a>
+  </div>
 </body>
 </html>
+>>>>>>> 0694593 (chore: update OG image meta tags to correct path)
